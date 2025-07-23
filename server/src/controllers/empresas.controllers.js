@@ -5,7 +5,7 @@ export const getEmpresas = async (req, res)=>{
     const pool = await connection();
     const query = await pool.request().query('SELECT * FROM empresa')
     if (query.rowsAffected[0]==0){
-        return req.status(404).json({massege: "No hay Empresas que mostrar"})
+        return req.status(404).json({message: "No hay Empresas que mostrar"})
     }
 
     return res.json(query.recordset)
